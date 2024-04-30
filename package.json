@@ -1,0 +1,13 @@
+{
+  "name": "seu-role-backend",
+  "version": "1.0.0",
+  "description": "Back-end da aplicação Seu Role",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
