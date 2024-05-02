@@ -1,6 +1,7 @@
 {
   "name": "seu-role-backend",
   "version": "1.0.0",
+  "type": "module",
   "description": "Back-end da aplicação Seu Role",
   "main": "index.js",
   "scripts": {
