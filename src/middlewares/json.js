@@ -1,3 +1,8 @@
+/**
+ * Interceptador da requisição
+ * @param {Request} req
+ * @param {Response} res
+ */
 export async function json(req, res) {
   const buffers = []
 
@@ -10,4 +15,6 @@ export async function json(req, res) {
   } catch {
     req.body = null
   }
+
+  res.setHeader('Content-type', 'application/json')
 }
