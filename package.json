@@ -1,8 +1,8 @@
 {
-  "name": "seu-role-backend",
+  "name": "fundamentals",
   "version": "1.0.0",
   "type": "module",
-  "description": "Back-end da aplicação Seu Role",
+  "description": "Estudos do Node.js e criação de api e persistência de dados",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

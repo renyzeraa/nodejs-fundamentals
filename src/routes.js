@@ -50,5 +50,18 @@ export const routes = [
       })
       return res.end('Criação de usuário')
     }
+  },
+  {
+    method: 'DELETE',
+    path: '/users/:id',
+    /**
+     * Manipulador de requisição para a rota de criação de usuário.
+     * @param {Object} req - O objeto de requisição HTTP.
+     * @param {Object} res - O objeto de resposta HTTP.
+     * @returns {void}
+     */
+    handler: (req, res) => {
+      console.log('removido')
+    }
   }
 ]
