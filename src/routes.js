@@ -1,5 +1,7 @@
 import { Database } from './database.js'
 import { randomUUID } from 'node:crypto'
+import { buildRoutePath } from './utils/build-route-path.js'
+
 const database = new Database()
 
 /**
@@ -20,7 +22,7 @@ const database = new Database()
 export const routes = [
   {
     method: 'GET',
-    path: '/users',
+    path: buildRoutePath('/users'),
     /**
      * Manipulador de requisição para a rota de obtenção de usuários.
      * @param {Object} req - O objeto de requisição HTTP.
@@ -34,7 +36,7 @@ export const routes = [
   },
   {
     method: 'POST',
-    path: '/users',
+    path: buildRoutePath('/users'),
     /**
      * Manipulador de requisição para a rota de criação de usuário.
      * @param {Object} req - O objeto de requisição HTTP.
@@ -53,7 +55,7 @@ export const routes = [
   },
   {
     method: 'DELETE',
-    path: '/users/:id',
+    path: buildRoutePath('/users/:id'),
     /**
      * Manipulador de requisição para a rota de criação de usuário.
      * @param {Object} req - O objeto de requisição HTTP.
@@ -61,7 +63,10 @@ export const routes = [
      * @returns {void}
      */
     handler: (req, res) => {
-      console.log('removido')
+      if (database.delete('users', req.params.id)) {
+        return res.writeHead(204).end('Remoção de usuário')
+      }
+      return res.writeHead(404).end('Usuário não encontrado')
     }
   }
 ]
