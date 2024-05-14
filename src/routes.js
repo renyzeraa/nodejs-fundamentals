@@ -30,7 +30,11 @@ export const routes = [
      * @returns {void}
      */
     handler: (req, res) => {
-      const users = database.select('users')
+      const { search } = req.query
+      const users = database.select(
+        'users',
+        search ? { name: search, email: search } : null
+      )
       return res.end(JSON.stringify(users))
     }
   },
