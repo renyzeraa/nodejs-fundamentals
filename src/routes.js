@@ -68,5 +68,28 @@ export const routes = [
       }
       return res.writeHead(404).end('Usuário não encontrado')
     }
+  },
+  {
+    method: 'PUT',
+    path: buildRoutePath('/users/:id'),
+    /**
+     * Manipulador de requisição para a rota de alteração de dados de um usuário.
+     * @param {Object} req - O objeto de requisição HTTP.
+     * @param {Object} res - O objeto de resposta HTTP.
+     * @returns {void}
+     */
+    handler: (req, res) => {
+      const { id } = req.params
+      const { name, email } = req.body
+      if (
+        database.update('users', id, {
+          name,
+          email
+        })
+      ) {
+        return res.writeHead(204).end('Alteração de usuário')
+      }
+      return res.writeHead(404).end('Falha ao alterar os dados do usuário')
+    }
   }
 ]

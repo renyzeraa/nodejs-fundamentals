@@ -44,4 +44,13 @@ export class Database {
     }
     return index > -1
   }
+
+  update(table, id, data) {
+    const index = this.#database[table].findIndex(item => item.id === id)
+    if (index > -1) {
+      this.#database[table][index] = { id, ...data }
+      this.#persist()
+    }
+    return index > -1
+  }
 }
